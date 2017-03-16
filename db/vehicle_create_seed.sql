@@ -2,6 +2,19 @@
 -- the tests in case you delete users/cars the tests are expecting to see
 -- DROP TABLE IF EXISTS vehicles;
 
+CREATE TABLE if not exists Vehicles
+(
+    id serial primary key NOT NULL,
+    make text,
+    model text,
+    year integer,
+    ownerId int references Users(id)
+)
+
+insert into Vehicles
+  (make, model, year, ownerId)
+  values
+
 ('Toyota', 'Camry', 1991, 1),
 ('Honda', 'Civic', 1995, 1),
 ('Ford', 'Focus', 2005, 1),
